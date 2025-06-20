@@ -8,6 +8,7 @@ public abstract class ConverterParent {
     protected String snakeWord;
     protected String camelWord;
     protected String pascalWord;
+    protected String screamingSnakeWord;
 
     @BeforeEach
     public void setup(){
@@ -15,6 +16,7 @@ public abstract class ConverterParent {
         snakeWord = "snake_case";
         camelWord = "camelCase";
         pascalWord = "PascalCase";
+        screamingSnakeWord = "SCREAMING_SNAKE_CASE";
     }
 
 }
