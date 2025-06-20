@@ -1,0 +1,71 @@
+# .github/workflows/verify-and-publish.yml
+name: Verify, Publish, and Auto-Merge
+
+on:
+  pull_request_target:
+    branches:
+      - main
+
+jobs:
+  verify-publish-merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Run mvn verify site
+        id: build
+        run: mvn verify site
+
+      - name: Upload site artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-artifacts
+          path: target/site
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/site
+
+      - name: Enable auto-merge
+        if: success()
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ github.event.pull_request.number }}
+          merge-method: squash
+
+      - name: Send failure email
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.example.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: 'Build Failed for PR #${{ github.event.pull_request.number }}'
+          to: ${{ github.event.pull_request.user.email || 'fallback@example.com' }}
+          from: 'ci-bot@example.com'
+          body: |
+            Hello,
+
+            The build for your pull request #${{ github.event.pull_request.number }} has failed.
+            Please review the logs and make necessary changes.
+
+            Thanks,
+            CI Bot
