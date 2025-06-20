@@ -44,5 +44,5 @@ jobs:
             echo "PR already exists: #$existing_pr"
           fi
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.AUTOMATION_PAT }}
 
