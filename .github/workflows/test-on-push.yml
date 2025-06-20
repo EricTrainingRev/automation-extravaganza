@@ -25,3 +25,14 @@ jobs:
 
       - name: Run mvn test
         run: mvn test
+
+      - name: Create Pull Request to main
+        if: success()
+        run: |
+          gh pr create \
+            --base main \
+            --head ${{ github.ref_name }} \
+            --title "Auto PR: ${{ github.ref_name }} to main" \
+            --body "This pull request was automatically created after successful tests."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
