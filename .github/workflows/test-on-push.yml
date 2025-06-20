@@ -40,7 +40,6 @@ jobs:
               --head ${{ github.ref_name }} \
               --title "Auto PR: ${{ github.ref_name }} to main" \
               --body "This pull request was automatically created after successful tests."
-            sleep 1
           else
             echo "PR already exists: #$existing_pr"
           fi
