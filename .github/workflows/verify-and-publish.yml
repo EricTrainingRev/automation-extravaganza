@@ -36,9 +36,7 @@ jobs:
 
       - name: Run mvn verify
         id: verify
-        run: | 
-          mvn verify
-          echo "exit_code=$?" >> $GITHUB_OUTPUT
+        run: mvn verify
 
       - name: Run mvn site
         if: always()
@@ -59,7 +57,7 @@ jobs:
           publish_dir: ./target/site
 
       - name: Enable auto-merge
-        if: steps.verify.outputs.exit_code == '0'
+        if: success()
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -67,7 +65,7 @@ jobs:
           merge-method: squash
 
       - name: Send failure email
-        if: steps.verify.outputs.exit_code != '0'
+        if: failure()
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
