@@ -17,7 +17,7 @@ public class NegativeConverterTest extends ConverterParent{
     @Test
     @DisplayName("converter should give an error message if camel given instead of pascal for conversion to snake case")
     public void invalidSnakeConvertTwo(){
-        BadCaseException exception = Assertions.assertThrows(BadCaseException.class, () -> converter.snakeToCamel(camelWord));
+        BadCaseException exception = Assertions.assertThrows(BadCaseException.class, () -> converter.snakeToCamel(snakeWord));
         Assertions.assertEquals("invalid input: expected snake case", exception.getMessage());
     }
 
