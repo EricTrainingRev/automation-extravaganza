@@ -38,7 +38,7 @@ jobs:
         id: verify
         run: | 
           mvn verify
-          echo "exitcode=$?" >> $GITHUB_OUTPUT
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
 
       - name: Run mvn site
         if: always()
