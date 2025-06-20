@@ -90,10 +90,10 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td>6</td>
 <td>0</td>
+<td>2</td>
 <td>1</td>
-<td>1</td>
-<td>66.7%</td>
-<td>0.264 s</td></tr></table><br />
+<td>50.0%</td>
+<td>0.243 s</td></tr></table><br />
 <p>Note: failures are anticipated and checked for with assertions while errors are unanticipated.</p><br /></section><section><a id="Package_List"></a>
 <h2>Package List</h2>
 <p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><br />
@@ -110,10 +110,10 @@ function toggleDisplay(elementId) {
 <td><a href="#com.revature">com.revature</a></td>
 <td>6</td>
 <td>0</td>
+<td>2</td>
 <td>1</td>
-<td>1</td>
-<td>66.7%</td>
-<td>0.264 s</td></tr></table><br />
+<td>50.0%</td>
+<td>0.243 s</td></tr></table><br />
 <p>Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.</p><section><a id="com.revature"></a>
 <h3>com.revature</h3>
 <table class="table table-striped">
@@ -131,10 +131,10 @@ function toggleDisplay(elementId) {
 <td><a href="#com.revature.NegativeConverterTest">NegativeConverterTest</a></td>
 <td>3</td>
 <td>0</td>
+<td>2</td>
 <td>1</td>
-<td>1</td>
-<td>33.3%</td>
-<td>0.038 s</td></tr>
+<td>0%</td>
+<td>0.026 s</td></tr>
 <tr class="a">
 <td><a href="#com.revature.PositiveConverterTest"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#com.revature.PositiveConverterTest">PositiveConverterTest</a></td>
@@ -143,7 +143,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.063 s</td></tr>
+<td>0.071 s</td></tr>
 <tr class="b">
 <td><a href="#com.revature.TestSuite"><img src="images/icon_success_sml.gif" /></a></td>
 <td><a href="#com.revature.TestSuite">TestSuite</a></td>
@@ -152,7 +152,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>0%</td>
-<td>0.163 s</td></tr></table></section><br /></section><section><a id="Test_Cases"></a>
+<td>0.146 s</td></tr></table></section><br /></section><section><a id="Test_Cases"></a>
 <h2>Test Cases</h2>
 <p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><section><a id="com.revature.NegativeConverterTest"></a>
 <h3>NegativeConverterTest</h3>
@@ -170,7 +170,7 @@ function toggleDisplay(elementId) {
 <td><a href="#com.revature.NegativeConverterTest.invalidSnakeConvertOne"><img src="images/icon_error_sml.gif" /></a></td>
 <td><a id="TC_com.revature.NegativeConverterTest.invalidSnakeConvertOne"></a><a href="#com.revature.NegativeConverterTest.invalidSnakeConvertOne">invalidSnakeConvertOne</a>
 <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('com.revature.NegativeConverterTest.invalidSnakeConvertOne');"><span style="display:inline;" id="com.revature.NegativeConverterTest.invalidSnakeConvertOne-off"> + </span><span style="display:none;" id="com.revature.NegativeConverterTest.invalidSnakeConvertOne-on"> - </span>[ Detail ]</a></div></td>
-<td>0.019 s</td></tr>
+<td>0.011 s</td></tr>
 <tr class="b">
 <td>-</td>
 <td>Expected com.revature.BadCaseException to be thrown, but nothing was thrown.</td>
@@ -190,19 +190,38 @@ function toggleDisplay(elementId) {
 </pre></td>
 <td>-</td></tr>
 <tr class="b">
-<td><img src="images/icon_success_sml.gif" /></td>
-<td><a id="TC_com.revature.NegativeConverterTest.invalidSnakeConvertTwo"></a>invalidSnakeConvertTwo</td>
-<td>0.004 s</td></tr></table></section><section><a id="com.revature.PositiveConverterTest"></a>
+<td><a href="#com.revature.NegativeConverterTest.invalidSnakeConvertTwo"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a id="TC_com.revature.NegativeConverterTest.invalidSnakeConvertTwo"></a><a href="#com.revature.NegativeConverterTest.invalidSnakeConvertTwo">invalidSnakeConvertTwo</a>
+<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('com.revature.NegativeConverterTest.invalidSnakeConvertTwo');"><span style="display:inline;" id="com.revature.NegativeConverterTest.invalidSnakeConvertTwo-off"> + </span><span style="display:none;" id="com.revature.NegativeConverterTest.invalidSnakeConvertTwo-on"> - </span>[ Detail ]</a></div></td>
+<td>0.004 s</td></tr>
+<tr class="a">
+<td>-</td>
+<td>Expected com.revature.BadCaseException to be thrown, but nothing was thrown.</td>
+<td>-</td></tr>
+<tr id="com.revature.NegativeConverterTest.invalidSnakeConvertTwo-failure" style="display:none;" class="b">
+<td>-</td>
+<td>
+<pre>org.opentest4j.AssertionFailedError: Expected com.revature.BadCaseException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3128)
+	at com.revature.NegativeConverterTest.invalidSnakeConvertTwo(NegativeConverterTest.java:20)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+</pre></td>
+<td>-</td></tr></table></section><section><a id="com.revature.PositiveConverterTest"></a>
 <h3>PositiveConverterTest</h3>
 <table class="table table-striped">
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" /></td>
 <td><a id="TC_com.revature.PositiveConverterTest.snakeToPascalPositiveTest"></a>snakeToPascalPositiveTest</td>
-<td>0.033 s</td></tr>
+<td>0.034 s</td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" /></td>
 <td><a id="TC_com.revature.PositiveConverterTest.snakeToScreamingSnakeCaseTest"></a>snakeToScreamingSnakeCaseTest</td>
-<td>0.002 s</td></tr>
+<td>0.001 s</td></tr>
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" /></td>
 <td><a id="TC_com.revature.PositiveConverterTest.snakeToCamelPositiveTest"></a>snakeToCamelPositiveTest</td>
@@ -225,7 +244,17 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td>-</td>
 <td>
-<div id="invalidSnakeConvertOne-failure">com.revature.NegativeConverterTest:13</div></td></tr></table><br /></section></section>
+<div id="invalidSnakeConvertOne-failure">com.revature.NegativeConverterTest:13</div></td></tr>
+<tr class="b">
+<td><img src="images/icon_error_sml.gif" /></td>
+<td><a id="com.revature.NegativeConverterTest.invalidSnakeConvertTwo"></a>invalidSnakeConvertTwo</td></tr>
+<tr class="a">
+<td>-</td>
+<td>org.opentest4j.AssertionFailedError: Expected com.revature.BadCaseException to be thrown, but nothing was thrown.</td></tr>
+<tr class="b">
+<td>-</td>
+<td>
+<div id="invalidSnakeConvertTwo-failure">com.revature.NegativeConverterTest:20</div></td></tr></table><br /></section></section>
         </main>
       </div>
     </div>
