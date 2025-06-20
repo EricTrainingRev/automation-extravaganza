@@ -39,7 +39,13 @@ public class ConverterImp implements Converter{
 
     @Override
     public String snakeToScreamingSnake(String word) {
-        return word.toUpperCase();
+        for (char c: word.toCharArray()){
+            if (c == '_'){
+                return word.toUpperCase();              
+            }
+        
+        }
+        throw new BadCaseException("invalid input: expected snake case");
     }
 
 }
