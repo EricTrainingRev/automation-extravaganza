@@ -19,4 +19,10 @@ public class PositiveConverterTest extends ConverterParent{
         Assertions.assertEquals("SnakeCase", converter.snakeToPascal(snakeWord));
     }
 
+    @Test
+    @DisplayName("snake case should convert to screaming snake case")
+    public void snakeToScreamingSnakeCaseTest(){
+        Assertions.assertEquals("SNAKE_CASE", converter.snakeToScreamingSnake(snakeWord));
+    }
+
 }

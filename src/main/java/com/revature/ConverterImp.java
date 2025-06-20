@@ -37,4 +37,9 @@ public class ConverterImp implements Converter{
         throw new BadCaseException("invalid case: expected snake case");
     }
 
+    @Override
+    public String snakeToScreamingSnake(String word) {
+        return word.toUpperCase();
+    }
+
 }
