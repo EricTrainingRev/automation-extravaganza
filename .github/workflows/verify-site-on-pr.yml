@@ -1,0 +1,26 @@
+name: Verify Site on PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verify-site:
+    name: Verify and Upload Site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      - name: Run mvn verify site
+        run: mvn verify site
+      - name: Upload site artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-artifacts
+          path: target/site
