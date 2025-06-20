@@ -39,7 +39,13 @@
 
     @Override
     public String snakeToScreamingSnake(String word) {
-<span class="fc" id="L42">        return word.toUpperCase();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        for (char c: word.toCharArray()){</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">            if (c == '_'){</span>
+<span class="fc" id="L44">                return word.toUpperCase();              </span>
+            }
+        
+        }
+<span class="fc" id="L48">        throw new BadCaseException(&quot;invalid input: expected snake case&quot;);</span>
     }
 
 }
