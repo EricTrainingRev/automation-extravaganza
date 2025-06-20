@@ -25,3 +25,13 @@ jobs:
 
       - name: Run mvn test
         run: mvn test
+
+      - name: Create Pull Request to Main
+        if: success()
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: ${{ github.ref_name }}
+          title: "Auto Pull Request from ${{ github.ref_name }} to main"
+          body: 'Pull Request automatically generated from ${{ github.ref_name }} branch due to all tests passing'
