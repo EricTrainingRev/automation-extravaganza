@@ -66,8 +66,8 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: 'Build Failed for PR #${{ github.event.pull_request.number }}'
-          to: ${{ github.event.pull_request.user.email || 'fallback@example.com' }}
-          from: 'ci-bot@example.com'
+          to: ${{ github.event.pull_request.user.email || 'revtrainingemail@gmail.com' }}
+          from: 'AutomationExtravaganzaBot'
           body: |
             Hello,
 
