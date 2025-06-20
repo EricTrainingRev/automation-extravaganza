@@ -15,5 +15,13 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os}}-maven-
+
       - name: Run mvn test
         run: mvn test
