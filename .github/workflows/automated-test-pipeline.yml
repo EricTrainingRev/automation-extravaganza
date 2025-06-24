@@ -47,6 +47,7 @@ jobs:
         run: mvn test -Dtest="${{ steps.extract-tests.outputs.test_classes }}"
 
       - name: Create Pull Request to main
+        id: create_pr
         if: success()
         run: |
           chmod +x .github/scripts/pull-request.sh
