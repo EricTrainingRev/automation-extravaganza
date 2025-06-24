@@ -30,8 +30,6 @@ jobs:
         run: |
           chmod +x .github/scripts/test-changes.sh
           .github/scripts/test-changes.sh ${{ github.event.before }} ${{ github.sha }}
-        env:
-          GITHUB_OUTPUT: ${{ github.step.outputs }}
 
       - name: Run relevant tests
         if: steps.changed-tests.outputs.run_tests == 'true'
