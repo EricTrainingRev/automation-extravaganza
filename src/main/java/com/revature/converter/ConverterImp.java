@@ -47,7 +47,6 @@ public class ConverterImp implements Converter{
             }
         
         }
-        // some change along with script change
         throw new BadCaseException("invalid input: expected snake case");
     }
 
