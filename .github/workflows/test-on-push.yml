@@ -26,6 +26,7 @@ jobs:
       - name: Determine relevant test classes
         id: changed-tests
         run: |
+          chmod +x .github/scripts/test-changes.sh
           .github/scripts/test-changes.sh ${{ github.event.before }} ${{ github.sha }}
         env:
           GITHUB_OUTPUT: ${{ github.step.outputs }}
@@ -37,6 +38,7 @@ jobs:
       - name: Create Pull Request to main
         if: success()
         run: |
+          chmod +x .github/scripts/pull-request.sh
           .github/scripts/pull-request.sh
         env:
           GH_TOKEN: ${{ secrets.AUTOMATION_PAT }}
