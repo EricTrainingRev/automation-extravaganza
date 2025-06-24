@@ -1,12 +1,14 @@
 name: Verify, Publish, and Auto-Merge
 
 on:
-  pull_request:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["Test on Push"]
+    types:
+      - completed
 
 jobs:
   verify-publish-merge:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
