@@ -23,7 +23,7 @@ for file in $CHANGED_FILES; do
         TEST_CLASS_MAP["$class"]=1
 
     # Check if it's a source file in any package under com/revature
-    elif [[ "$normalized_file" == src/main/java/com/revature/**/*.java ]]; then
+    elif [[ "$normalized_file" == src/main/java/com/revature/**/*Imp.java ]]; then
         base_name=$(basename "$normalized_file" .java)
         relative_path=$(dirname "$normalized_file" | sed 's|src/main/java/||')
         test_dir="src/test/java/${relative_path}"
