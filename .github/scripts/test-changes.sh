@@ -19,7 +19,11 @@ echo "$COMMIT_MSGS"
 TEST_CLASSES=""
 while read -r line; do
     if [[ "$line" =~ \[tests=([^\]]+)\] ]]; then
-        TEST_CLASSES+="${BASH_REMATCH[1]},"
+        IFS=',' read -ra INTERFACES <<< "${BASH_REMATCH[1]}"
+        for iface in "${INTERFACES[@]}"; do
+            TEST_CLASSES+="Positive${iface}Test,"
+            TEST_CLASSES+="Negative${iface}Test,"
+        done
     fi
 done <<< "$COMMIT_MSGS"
 
