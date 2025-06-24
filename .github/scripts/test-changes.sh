@@ -31,7 +31,8 @@ done <<< "$COMMIT_MSGS"
 TEST_CLASSES=$(echo "$TEST_CLASSES" | sed 's/,$//')
 
 # Deduplicate test classes
-IFS=',' read -ra CLASS_ARRAY <<< "$TEST_CLASSES"
+IFS=',' 
+read -ra CLASS_ARRAY <<< "$TEST_CLASSES"
 UNIQUE_CLASSES=$(printf "%s\n" "${CLASS_ARRAY[@]}" | sort -u | paste -sd "," -)
 TEST_CLASSES="$UNIQUE_CLASSES"
 
