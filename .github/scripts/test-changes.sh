@@ -30,12 +30,6 @@ done <<< "$COMMIT_MSGS"
 # Remove trailing comma
 TEST_CLASSES=$(echo "$TEST_CLASSES" | sed 's/,$//')
 
-# Deduplicate test classes
-IFS=',' 
-read -ra CLASS_ARRAY <<< "$TEST_CLASSES"
-UNIQUE_CLASSES=$(printf "%s\n" "${CLASS_ARRAY[@]}" | sort -u | paste -sd "," -)
-TEST_CLASSES="$UNIQUE_CLASSES"
-
 if [ -n "$TEST_CLASSES" ]; then
     echo "Detected test classes: $TEST_CLASSES"
     echo "run_tests=true" >> "$GITHUB_OUTPUT"
