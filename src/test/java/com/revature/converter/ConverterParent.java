@@ -1,6 +1,9 @@
-package com.revature;
+package com.revature.converter;
 
 import org.junit.jupiter.api.BeforeEach;
+
+import com.revature.converter.Converter;
+import com.revature.converter.ConverterImp;
 
 public abstract class ConverterParent {
 

@@ -1,4 +1,6 @@
-package com.revature;
+package com.revature.converter;
+
+import com.revature.exception.BadCaseException;
 
 public class ConverterImp implements Converter{
     @Override
