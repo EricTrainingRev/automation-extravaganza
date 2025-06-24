@@ -18,6 +18,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+          
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:
@@ -25,15 +26,19 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os}}-maven-
+
       - name: Determine relevant test classes
-        id: changed-tests
+        id: extract-tests
         run: |
           chmod +x .github/scripts/test-changes.sh
-          .github/scripts/test-changes.sh ${{ github.event.before }} ${{ github.sha }}
+          .github/scripts/test-changes.sh
+        env:
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+          GITHUB_SHA: ${{ github.sha }}
 
       - name: Run relevant tests
-        if: steps.changed-tests.outputs.run_tests == 'true'
-        run: mvn test -Dtest="${{ steps.changed-tests.outputs.test_classes }}"
+        if: steps.extract-tests.outputs.run_tests == 'true'
+        run: mvn test -Dtest="${{ steps.extract-tests.outputs.test_classes }}"
 
       - name: Create Pull Request to main
         if: success()
