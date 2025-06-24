@@ -1,7 +1,14 @@
 #!/bin/bash
 
 echo "Detecting changed files..."
-CHANGED_FILES=$(git diff --name-only "$1" "$2")
+
+# Fallback if the "before" SHA is all zeros (new branch)
+if [ "$1" == "0000000000000000000000000000000000000000" ]; then
+    echo "New branch detected. Using initial commit diff."
+    CHANGED_FILES=$(git diff --name-only "$2")
+else
+    CHANGED_FILES=$(git diff --name-only "$1" "$2")
+fi
 
 declare -A TEST_CLASS_MAP
 
