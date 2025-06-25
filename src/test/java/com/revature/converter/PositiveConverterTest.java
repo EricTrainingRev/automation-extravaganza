@@ -22,7 +22,7 @@ public class PositiveConverterTest extends ConverterParent{
     @Test
     @DisplayName("snake case should convert to screaming snake case")
     public void snakeToScreamingSnakeCaseTest(){
-        Assertions.assertEquals("SNAKE_CCASE", converter.snakeToScreamingSnake(snakeWord));
+        Assertions.assertEquals("SNAKE_CASE", converter.snakeToScreamingSnake(snakeWord));
     }
 
 }
