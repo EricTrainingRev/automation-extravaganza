@@ -9,8 +9,7 @@ if [ -z "$existing_pr" ]; then
         --base main \
         --head "$GITHUB_REF_NAME" \
         --title "Auto PR: $GITHUB_REF_NAME to main" \
-        --body "This pull request was automatically created after successful tests." \
-        --json number --jq '.number')
+        --body "This pull request was automatically created after successful tests.")
     echo "Created PR #$pr_url"
     echo "pull_request_number=$pr_url" >> "$GITHUB_OUTPUT"
 else
